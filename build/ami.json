@@ -1,0 +1,50 @@
+{
+    "variables" : {
+        "region" : "eu-west-1",
+        "aws_access_key_id": "{{ env `AWS_ACCESS_KEY_ID` }}",
+        "aws_secret_access_key": "{{ env `AWS_SECRET_ACCESS_KEY` }}",
+        "source_ami" : "ami-09d4a659cdd8677be" 
+    },
+    "builders" : [
+        {
+            "type" : "amazon-ebs",
+            "profile" : "default",
+            "region" : "{{user `region`}}",
+            "access_key": "{{ user `AWS_ACCESS_KEY_ID` }}",
+            "secret_key": "{{ user `AWS_SECRET_ACCESS_KEY` }}",
+            "vpc_id": "{{ user `vpc_id` }}",
+            "subnet_id": "{{ user `subnet_id` }}",
+            "instance_type" : "t2.micro",
+            "source_ami" : "{{ user `source_ami` }}",
+            "ssh_username" : "ec2-user",
+            "ssh_timeout": "2m",
+            "ami_name" : "web-ami-{{timestamp}}",
+            "ami_description" : "Amazon Linux Image with SNS web page",
+            "run_tags" : {
+                "Name" : "packer-builder-docker"
+            },
+            "tags" : {
+                "Tool" : "Packer",
+                "Author" : "idmitriev",
+                "Environment" : "dev"
+            }
+        }
+    ],
+    "provisioners" : [
+        {
+            "type" : "file",
+            "source" : "./index.html",
+            "destination" : "/tmp/index.html"
+        },
+        {
+            "type" : "file",
+            "source" : "./send_email.py",
+            "destination" : "/tmp/send_email.py"
+        },
+        {
+            "type" : "shell",
+            "script" : "./setup.sh",
+            "execute_command" : "sudo -E -S sh '{{ .Path }}'"
+        }
+    ]
+}
