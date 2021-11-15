@@ -33,11 +33,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: List folder
-      run: ls -la 
-
-    - name: Change folder
-      run: cd ./deploy/ && ls -la 
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
@@ -47,11 +42,8 @@ jobs:
 
 
     - name: Terraform Init
-      run: terraform init
-
-    - name: List folder
-      run: ls -la 
+      run: cd deploy && terraform init
 
     - name: Terraform Apply
 #      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve # -var-file="dev.auto.tfvars"
+      run: cd deploy && terraform apply -auto-approve # -var-file="dev.auto.tfvars"
