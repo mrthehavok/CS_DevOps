@@ -30,16 +30,14 @@ jobs:
         shell: bash
     steps:
     # Checkout the repository to the GitHub Actions runner
-    - name: Checkout
-      uses: actions/checkout@v2
+    - name: list folders
+      run: cd deploy 
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1.3.2
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-    - name: list folders
-      run: cd deploy 
 
     - name: Terraform Init
       run: terraform init
