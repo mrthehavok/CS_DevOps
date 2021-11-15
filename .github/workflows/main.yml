@@ -3,7 +3,7 @@ name: CI_CD
 on: #[push]
   push:
     branches:
-        - 'test'
+        - 'main'
 
 jobs:
   packer_build:
@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Packer build
       uses: ExitoLab/packer_build_action_aws@v0.2.10
-        with:
+      with:
           templateFile: 'ami.json'
           workingDir: 'build'
           varFile: 'variables.json'
