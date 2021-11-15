@@ -1,9 +1,9 @@
 name: CI_CD
 
-on: [push]
-#  push:
-#    branches:
-#        - 'test'
+on: #[push]
+  push:
+    branches:
+        - 'test'
 
 jobs:
 #  packer_build:
