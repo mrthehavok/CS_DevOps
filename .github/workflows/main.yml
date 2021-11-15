@@ -33,6 +33,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: List folder
+      run: ls -la 
+
     - name: Change folder
       run: cd deploy 
 
