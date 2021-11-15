@@ -5,7 +5,7 @@ on: [push]
 #    branches:
 #        - 'test'
 
-#jobs:
+jobs:
 #  packer_build:
 #    runs-on: ubuntu-latest
 #    steps:
