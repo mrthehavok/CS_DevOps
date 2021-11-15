@@ -37,7 +37,7 @@ jobs:
       run: ls -la 
 
     - name: Change folder
-      run: cd ./deploy/ 
+      run: cd ./deploy/ && ls -la 
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
