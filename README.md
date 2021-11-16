@@ -1,4 +1,5 @@
-<img src="https://github.com/mrthehavok/CS_DevOps/workflows/CI_CD/badge.svg?branch=mastersd"><br>
+![example workflow](https://github.com/mrthehavok/CS_DevOps/workflows/CI_CD/badge.svg)
+
 
 # Description 
 It's fully automated project via CI/CD which create simple web page in AWS stack.
