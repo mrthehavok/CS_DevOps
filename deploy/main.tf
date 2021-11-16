@@ -30,6 +30,7 @@ locals {
 */
 
 
+
 data "aws_availability_zones" "working" {}
 
 
@@ -70,7 +71,9 @@ module "asg" {
   min_asg_size  = var.min_asg_size
   public_subnets= module.vpc.public_subnets
   vpc_id        = module.vpc.vpc_id
+  alb_target_group_arns = module.alb.alb_target_group_arns[0]
   common_tags   = var.common_tags
+  
 }
 
 
@@ -78,7 +81,9 @@ module "asg" {
 #                                        Attach ASG to ALB
 #------------------------------------------------------------------------------------------------
 
+/*
 resource "aws_autoscaling_attachment" "asg_attachment_bar" {
   autoscaling_group_name = module.asg.asg_id
   alb_target_group_arn   = module.alb.alb_target_group_arns[0]
 }
+*/
