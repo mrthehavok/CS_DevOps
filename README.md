@@ -2,17 +2,7 @@
 
 # Description 
 - I’m surprised at how many times I land on a project page that is obviously popular (because Twitter told me so) but I have no idea why because the project owners don’t tell me plainly what the project is or why I should care.
-# Installation instructions
-- Tell me where to get the bits and how to install them
-# Where to get help 
-- Link to the docs, mailing list, wiki, etc.
-# Contribution guidelines 
-- Tell me how I can help out including wanted features and code standards
-# Contributor list 
-- List the humans behind the project
-# Credits, Inspiration, Alternatives 
-- Tell me if this is a fork of or otherwise inspired by another project. I won’t think you’re a douche when I find out later.
-
+- 
 ## Project tree 
 ```
 ├── README.md
@@ -54,3 +44,64 @@
     └── variables.tf
 
 ```
+## Stack 
+### APP
+#### Description
+Simple web page for sending message using AWS SNS. SNS topic store in SSM parameter store.
+
+#### Technologies
+1. java
+
+### build
+#### Description
+Simple web page for sending message using AWS SNS. SNS topic store in SSM parameter store.
+
+#### Technologies
+1. [github actions](https://docs.github.com/en/actions)
+2. [packer](https://www.packer.io/docs)
+3. [setup-terraform](https://github.com/hashicorp/setup-terraform)
+
+### deploy
+#### Description
+Create infrastracture using terraform:
+
+- VPC and Network
+- - VPC
+- - 2 public subnet
+- - 1 private subnet
+- - Minimal required amount of resources (IGW,EIP,NAT, routing)
+- Application
+- - Auto Scaling Group (single micro EC2 instance)
+- - Launch Configuration
+- - ALB
+- - IAM Role (access to Parameter Store and SNS services)
+- - SNS topic & sub
+- - SSM parameter
+
+#### Technologies
+1. [AWS](https://docs.aws.amazon.com/)
+2. [terraform](https://www.terraform.io/docs/index.html)
+
+## Prerequisites
+- AWS account
+- Terraform cloud account
+## Installation instructions
+1. Configure TF_API_TOKEN , AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for your Terraform cloud account - [Instruction](https://learn.hashicorp.com/tutorials/terraform/github-actions).
+2. Configure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for your secret github sections -  [Instruction](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
+3. 
+## External module info
+### Terraform
+- VPC was build using  [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)
+- ALB was build using  [terraform-aws-alb](https://github.com/terraform-aws-modules/terraform-aws-alb)
+### Github Actions
+- Checks-out your repository [actions/checkout](https://github.com/marketplace/actions/checkout)
+- Pack you build to AWS AMI [ExitoLab/packer_build_action_aws](https://github.com/marketplace/actions/packer-build-on-aws)
+- Set up Terraform CLI [hashicorp/setup-terraform](https://github.com/marketplace/actions/hashicorp-setup-terraform)
+# Contribution guidelines 
+- Tell me how I can help out including wanted features and code standards
+# Contributor list 
+- List the humans behind the project
+# Credits, Inspiration, Alternatives 
+- Tell me if this is a fork of or otherwise inspired by another project. I won’t think you’re a douche when I find out later.
+
+
