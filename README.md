@@ -99,8 +99,9 @@ Create infrastracture using github actions and terraform:
 ## Installation instructions
 1. Configure TF_API_TOKEN , AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for your Terraform cloud account - [Instruction](https://learn.hashicorp.com/tutorials/terraform/github-actions).
 2. Configure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for your secret github sections -  [Instruction](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
-3. **For first run (initialization)** just push repo
-4. If you want change any config just change required in main branch and push. All steps are automated
+3. **For first run (initialization)** just push repo.
+4. **For first run (initialization)** Confirm subscribe.
+5. If you want change any config just change required in main branch and push. All steps are automated.
 
 ## External module info
 ### Terraform
