@@ -22,31 +22,37 @@ terraform {
          }
        }
      }
-
+/*
 locals {
   public_subnets  = module.vpc.public_subnets
   identifier      = lower("${var.environment}-${var.company_name}")
 }
+*/
+
+
+data "aws_availability_zones" "working" {}
+
+
 
 module "iam" {
   source          = "./modules/IAM"
+}
+
+module "SSM_SNS" {
+  source          = "./modules/SSM_SNS"
+  email_address   = var.email_address
 }
 
 
 module "vpc" {
   source          = "./modules/network"
   cidr_block =      var.cidr_block
-  azs             = var.azs
+  azs             = data.aws_availability_zones.working.names
   public_subnets  = var.public_subnets
   private_subnets = var.private_subnets
   common_tags     = var.common_tags
   environment     = var.environment
 }
-
-
-
-
-
 
 
 module "alb" {
@@ -55,7 +61,6 @@ module "alb" {
   vpc_id        = module.vpc.vpc_id
   common_tags   = var.common_tags
   sg_id         = module.asg.sg_id
- # instance_id   = module.asg.instance_id
 }
 
 module "asg" {
@@ -66,10 +71,6 @@ module "asg" {
   public_subnets= module.vpc.public_subnets
   vpc_id        = module.vpc.vpc_id
   common_tags   = var.common_tags
-#  alb_target_group_arns = module.alb.alb_target_group_arns[0]
-# role_name     =  module.iam.role_name
-#  key_name      = var.key_name
-#  bucket_name   = var.bucket_name
 }
 
 

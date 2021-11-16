@@ -23,15 +23,7 @@ module "alb" {
       name_prefix      = "pref-"
       backend_protocol = "HTTP"
       backend_port     = 80
-      target_type      = "instance"
-/*
-      targets = [
-        {
-          target_id = "i-043ab627a371e414e"
-          port = 80
-        }
-      ]
- */     
+      target_type      = "instance"    
     }
   ]
 
