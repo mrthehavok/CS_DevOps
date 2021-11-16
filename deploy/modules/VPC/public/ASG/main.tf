@@ -57,6 +57,7 @@ resource "aws_launch_configuration" "web" {
   security_groups       = [aws_security_group.web.id]
   iam_instance_profile  = "web_instance_profile"
 
+
   lifecycle {
     create_before_destroy = true
   }
@@ -70,7 +71,9 @@ resource "aws_autoscaling_group" "web" {
   min_size             = var.min_asg_size
   max_size             = var.max_asg_size
   desired_capacity     = var.des_asg_size
-  health_check_type    = "ELB"
+  health_check_type    = "EC2"
+  force_delete         = true
+  target_group_arns    = [var.alb_target_group_arns]
 #  vpc_zone_identifier  = [var.subnet_id[0],var.subnet_id[1]]
   vpc_zone_identifier  = [for id in var.public_subnets : id]
 #  load_balancers       = [aws_alb.web.name]

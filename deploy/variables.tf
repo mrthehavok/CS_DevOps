@@ -71,6 +71,15 @@ variable "subnets" {
   default = ""
 }
 
+/*
 variable "key_name" {
   default = "idmitriev-key-ireland.pem"
+}
+*/
+
+#------------------------------------------------------------------------------------------------
+#                                         SSN variables
+#------------------------------------------------------------------------------------------------
+variable "email_address" {
+  default = "havok16121989@gmail.com"
 }

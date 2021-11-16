@@ -28,6 +28,6 @@ public_subnets      =   ["10.0.11.0/24","10.0.12.0/24"]
 */
 
 cidr_block          =   "10.0.0.0/16"  
-azs                 =   ["eu-west-1a","eu-west-1b","eu-west-1c"]
 public_subnets      =   ["10.0.11.0/24","10.0.12.0/24"]
 private_subnets     =   ["10.0.1.0/24"]
+email_address       =   "havok16121989@gmail.com"
