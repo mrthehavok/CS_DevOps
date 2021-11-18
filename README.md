@@ -12,13 +12,18 @@ Application load balancer DNS
 
 ## Project tree 
 ```
+.
 ├── README.md
 ├── app
-│   └── index.html
+│   ├── application.py
+│   ├── index.html
+│   ├── test_scripts
+│   │   ├── send_email_ses.py
+│   │   └── send_email_sns.py
+│   └── web_flask.service
 ├── build
 │   ├── ami.json
-│   ├── index.html
-│   ├── send_email.py
+│   ├── presetup.sh
 │   ├── setup.sh
 │   └── variables.json
 └── deploy
@@ -41,7 +46,6 @@ Application load balancer DNS
     │   │       └── ASG
     │   │           ├── main.tf
     │   │           ├── outputs.tf
-    │   │           ├── user_data.sh
     │   │           └── variables.tf
     │   └── network
     │       ├── main.tf
@@ -49,7 +53,6 @@ Application load balancer DNS
     │       └── variable.tf
     ├── output.tf
     └── variables.tf
-
 ```
 
 # Stack 
@@ -58,7 +61,9 @@ Application load balancer DNS
 Simple web page for sending message using AWS SNS. SNS topic store in SSM parameter store.
 
 #### Technologies
-1. 
+1. [python3](https://docs.python.org/3/)
+2. [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+3. [flask](https://flask.palletsprojects.com/en/2.0.x/)
 
 
 
