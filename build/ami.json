@@ -33,13 +33,13 @@
     "provisioners" : [
         {
             "type" : "file",
-            "source" : "./index.html",
+            "source" : "../app/index.html",
             "destination" : "/tmp/index.html"
         },
         {
             "type" : "file",
-            "source" : "./send_email.py",
-            "destination" : "/tmp/send_email.py"
+            "source" : "../app/application.py",
+            "destination" : "/tmp/application.py"
         },
         {
             "type" : "shell",

@@ -8,10 +8,7 @@ sns = boto3.client("sns", region_name=AWS_REGION)
 ssm = boto3.client('ssm',region_name=AWS_REGION)
 parameter = ssm.get_parameter(Name='/DEV/TEST_SNS')
 RECIPIENT = parameter['Parameter']['Value']
-print(RECIPIENT)
 
-#  sns.publish(TopicArn=RECIPIENT,
-#            Message="SNS TEST",
-#            Subject="SNS TEST")
-
-
+sns.publish(TopicArn=RECIPIENT,
+            Message="SNS TEST",
+            Subject="SNS TEST")

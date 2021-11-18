@@ -12,6 +12,6 @@ service httpd start
 chkconfig httpd on
 
 echo "Copy files"
-sudo mkdir -p /var/www/html/
-sudo cp /tmp/index.html /var/www/html/index.html
-sudo cp /tmp/send_email.py /var/www/html/send_email.py
+sudo mkdir -p /var/www/html/templates
+sudo cp /tmp/index.html /var/www/html/templates/index.html
+sudo cp /tmp/application.py /var/www/html/application.py
