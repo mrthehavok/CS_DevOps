@@ -3,7 +3,7 @@ name: CI_CD
 on: #[push]
   push:
     branches:
-        - 'main'
+        - 'test'
 
 jobs:
   packer_build:
