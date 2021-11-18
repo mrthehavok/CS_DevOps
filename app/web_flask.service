@@ -1,0 +1,11 @@
+[Unit]
+Description=web_flask
+After=network.target
+
+[Service]
+WorkingDirectory=/home/ec2-user/web_flask
+ExecStart=/usr/bin/python3 /home/ec2-user/web_flask/application.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

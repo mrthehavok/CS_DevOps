@@ -1,17 +1,9 @@
 #!/bin/bash
 
-echo "Install packages"
-sudo yum -y install httpd
-sudo yum install python3 -y
-su - ec2-user
-pip3 install boto3 
-pip3 install flask 
-
-echo "Start httpd"
-service httpd start
-chkconfig httpd on
-
-echo "Copy files"
-sudo mkdir -p /var/www/html/
-sudo cp /tmp/index.html /var/www/html/index.html
-sudo cp /tmp/send_email.py /var/www/html/send_email.py
+echo "Enable autostart"
+cp /tmp/web_flask.service /etc/systemd/system/web_flask.service
+cp /tmp/application.py /home/ec2-user/web_flask/application.py
+cp /tmp/index.html /home/ec2-user/web_flask/templates/index.html
+systemctl start web_flask
+systemctl status web_flask
+systemctl enable web_flask

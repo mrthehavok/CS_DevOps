@@ -32,14 +32,24 @@
     ],
     "provisioners" : [
         {
+            "type" : "shell",
+            "script" : "./presetup.sh",
+            "execute_command" : "sudo -E -S sh '{{ .Path }}'"
+        },
+        {
             "type" : "file",
-            "source" : "./index.html",
+            "source" : "../app/web_flask.service",
+            "destination" : "/tmp/web_flask.service"
+        },
+        {
+            "type" : "file",
+            "source" : "../app/index.html",
             "destination" : "/tmp/index.html"
         },
         {
             "type" : "file",
-            "source" : "./send_email.py",
-            "destination" : "/tmp/send_email.py"
+            "source" : "../app/application.py",
+            "destination" : "/tmp/application.py"
         },
         {
             "type" : "shell",
