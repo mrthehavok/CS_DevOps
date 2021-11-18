@@ -44,12 +44,12 @@
         {
             "type" : "file",
             "source" : "../app/index.html",
-            "destination" : "/home/ec2-user/web_flask/templates/index.html"
+            "destination" : "/tmp/index.html"
         },
         {
             "type" : "file",
             "source" : "../app/application.py",
-            "destination" : "/home/ec2-user/web_flask/application.py"
+            "destination" : "/tmp/application.py"
         },
         {
             "type" : "shell",
