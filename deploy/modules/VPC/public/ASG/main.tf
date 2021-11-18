@@ -1,12 +1,12 @@
 #------------------------------------------------------------------------------------------------
 #
-#               Module for creating blue/green deployment and bastion in public subnets
+#               Module for creating rollback deployment  in public subnets
 #
 #------------------------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------------------------
 
-// Get latest AMI for bastion
+// Get latest AMI for LС
 data "aws_ami" "ami" {
   most_recent      = true
   owners           = ["self"]
