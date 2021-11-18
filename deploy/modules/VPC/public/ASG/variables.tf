@@ -46,7 +46,7 @@ variable "environment" {
 
 variable "allow_ports" {
   description = "List of ports to open to server "
-  default = ["80" ]
+  default = ["80","22" ]
 }
 
 variable "company_name" {

@@ -39,7 +39,7 @@
         {
             "type" : "file",
             "source" : "../app/web_flask.service",
-            "destination" : "/etc/systemd/system/flask_web/web_flask.service"
+            "destination" : "/etc/systemd/system/web_flask/web_flask.service"
         },
         {
             "type" : "file",
