@@ -39,13 +39,14 @@ variable "key_name" {
   default = "idmitriev-key-ireland.pem"
 }
 
+
 variable "environment" {
   default = "DEV"
 }
 
 variable "allow_ports" {
   description = "List of ports to open to server "
-  default = ["80" , "443", "22" ]
+  default = ["80" ]
 }
 
 variable "company_name" {

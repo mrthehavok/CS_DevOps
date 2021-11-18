@@ -32,14 +32,24 @@
     ],
     "provisioners" : [
         {
+            "type" : "shell",
+            "script" : "./presetup.sh",
+            "execute_command" : "sudo -E -S sh '{{ .Path }}'"
+        },
+        {
+            "type" : "file",
+            "source" : "../app/web_flask.service",
+            "destination" : "/etc/systemd/system/flask_web"
+        },
+        {
             "type" : "file",
             "source" : "../app/index.html",
-            "destination" : "/tmp/index.html"
+            "destination" : "/home/ec2-user/web_flask/templates/index.html"
         },
         {
             "type" : "file",
             "source" : "../app/application.py",
-            "destination" : "/tmp/application.py"
+            "destination" : "/home/ec2-user/web_flask/application.py"
         },
         {
             "type" : "shell",

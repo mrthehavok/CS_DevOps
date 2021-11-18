@@ -8,7 +8,7 @@ AWS_REGION="eu-west-1"
 
 sns = boto3.client("sns", region_name=AWS_REGION)
 ssm = boto3.client('ssm',region_name=AWS_REGION)
-parameter = ssm.get_parameter(Name='/DEV/TEST_SNS')
+parameter = ssm.get_parameter(Name='/DEV/SNS_ARN')
 RECIPIENT = parameter['Parameter']['Value']
 
 
@@ -40,6 +40,6 @@ def send_sms():
 if __name__ == '__main__':
     app.run(
         host = "0.0.0.0",
-        port = 5000,
+        port = 80,
         debug = True
     )
