@@ -18,12 +18,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    """ A view that renders the Send EMAIL form. """
+    """Render the form for sending an email through Amazon SNS."""
     return render_template('index.html')
 
 @app.route('/send_sms', methods=['POST'])
 def send_sms():
-    """ A POST endpoint that sends an EMAIL. """
+    """Handle form submission and send the email using Amazon SNS."""
 
     # Extract the form values:
     message = request.form['message']
@@ -41,5 +41,4 @@ if __name__ == '__main__':
     app.run(
         host = "0.0.0.0",
         port = 80,
-        debug = True
-    )
+        debug = True    )
