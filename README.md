@@ -78,7 +78,7 @@ Build AWS AMI using github actions.
 
 ## deploy
 #### Description
-Create infrastracture using github actions and terraform:
+Create infrastructure using github actions and terraform:
 
 - VPC and Network
 - - VPC
